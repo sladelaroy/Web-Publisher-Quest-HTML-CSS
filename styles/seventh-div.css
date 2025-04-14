@@ -1,0 +1,78 @@
+.seventh-div {
+  position: relative;
+  padding: 0px 144px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seventh-div .background {
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  filter: contrast(0.8) brightness(0.7);
+}
+
+.seventh-div .main-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seventh-div .main-text img {
+  width: 366px;
+}
+
+.seventh-div .main-text img:first-of-type {
+  width: 657px;
+}
+
+.seventh-div .carousel-prev,
+.seventh-div .carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.seventh-div .carousel-prev {
+  left: 20px;
+}
+.seventh-div .carousel-next {
+  right: 20px;
+}
+
+@media (max-width: 900px) {
+  .seventh-div {
+    padding: 0px 48px;
+  }
+
+
+  .seventh-div .carousel-prev,
+  .seventh-div .carousel-next {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .seventh-div {
+    padding: 0px 14px;
+  }
+
+  .seventh-div .main-text img {
+    width: 186px;
+  }
+  
+  .seventh-div .main-text img:first-of-type {
+    width: 264px;
+  }
+}

@@ -1,0 +1,143 @@
+.sixth-div {
+  position: relative;
+  background-color: #242424;
+  height: 100vh;
+  padding: 104px 51px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 43px;
+  overflow: hidden;
+}
+
+.sixth-div .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 23px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sixth-div .header div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sixth-div .header .header-text {
+  width: 143px;
+}
+
+.sixth-div .header .header-body-text {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 23px;
+  letter-spacing: -1%;
+  color: white;
+  width: 100%;
+}
+
+.sixth-div .header .header-body-text s {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 23px;
+  letter-spacing: -1.4%;
+  color: #f58220;
+}
+
+.sixth-div .header .design {
+  width: 467px;
+}
+
+.sixth-div .carousel1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+
+.carousel1-inner {
+  position: relative;
+  margin-top: 57px;
+  height: 561px;
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  transition: transform 0.1s linear; /* Smooth scrolling */
+  will-change: transform;
+  white-space: nowrap;
+}
+
+.sixth-div .carousel1-item {
+  position: relative;
+  width: 233px;
+  flex: 0 0 auto;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-right: 42px; /* Gap between items */
+}
+
+.sixth-div .carousel1-item h3 {
+  color: white;
+  margin-top: 3px;
+}
+
+.sixth-div .carousel1-item img {
+  width: 100%;
+}
+
+.sixth-div .carousel1-item.active {
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 2;
+}
+
+.sixth-div .carousel1-item:not(.active) {
+  opacity: 0.5;
+  transform: scale(0.9);
+}
+
+/* Optional: Use scroll-snap for smoother scrolling */
+.carousel1-inner {
+  scroll-snap-type: x mandatory;
+}
+
+.carousel1-item {
+  scroll-snap-align: center;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sixth-div .header .design {
+    width: 192px;
+    margin-bottom: 5px;
+  }
+
+  .sixth-div .header {
+    gap: 7px;
+  }
+
+  .sixth-div .header .header-text {
+    width: 90px;
+  }
+
+  .sixth-div .header .header-body-text,
+  .sixth-div .header .header-body-text s {
+    font-size: 22px;
+  }
+
+  .carousel1-inner {
+    margin-top: 37px;
+  }
+}
