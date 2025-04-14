@@ -380,3 +380,21 @@ function handleSwipe() {
     }
   }
 }
+const hamburger = document.querySelector(".hamburger-menu");
+const mobileNav = document.getElementById("mobileNav");
+const closeBtn = mobileNav.querySelector(".close-btn");
+const backdrop = document.getElementById("mobileNavBackdrop");
+
+function openMobileNav() {
+  mobileNav.classList.add("open");
+  backdrop.classList.add("active");
+}
+
+function closeMobileNav() {
+  mobileNav.classList.remove("open");
+  backdrop.classList.remove("active");
+}
+
+hamburger.addEventListener("click", openMobileNav);
+closeBtn.addEventListener("click", closeMobileNav);
+backdrop.addEventListener("click", closeMobileNav);

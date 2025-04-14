@@ -43,6 +43,16 @@
           />
         </div>
       </nav>
+      <div class="mobile-nav" id="mobileNav">
+        <img class="close-btn" src="/assets/images/close.svg" alt="close" />
+        <a href="#">센터원</a>
+        <a href="#">이용안내</a>
+        <a href="#">서비스소개</a>
+        <a href="#">임대문의</a>
+        <a href="#">고객지원</a>
+      </div>
+      <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+      
       <div class="hero-main">
         <img src="/assets/images/HeadTitle.svg" alt="" />
         <div>
@@ -128,23 +138,24 @@
     <div class="third-div">
       <div class="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item ">
+          <div class="carousel-item">
             <img
               class="carousel-background"
               src="/assets/images/image_1.png"
-              alt=""
+              alt="Image 1"
+              loading="lazy"
             />
             <div class="carousel-text">
               <img
                 class="carousel-header-text"
                 src="/assets/images/carousel_text1.svg"
-                alt=""
+                alt="Carousel Text 1"
+                loading="lazy"
               />
               <div class="carousel-body">
                 <div class="carousel-line" style="position: relative">
                   <div></div>
                 </div>
-
                 <div>
                   <p class="carousel-body-text">
                     서울 청계천은 자연 그대로의 휴식과 재충전 공간이며,
@@ -157,7 +168,11 @@
                 <button class="carousel-view-more">
                   <p>
                     view more
-                    <img src="/assets/images/keyboard_arrow_right.svg" alt="" />
+                    <img
+                      src="/assets/images/keyboard_arrow_right.svg"
+                      alt="Arrow Right"
+                      loading="lazy"
+                    />
                   </p>
                 </button>
               </div>
@@ -167,19 +182,20 @@
             <img
               class="carousel-background"
               src="/assets/images/image_2.png"
-              alt=""
+              alt="Image 2"
+              loading="lazy"
             />
             <div class="carousel-text">
               <img
                 class="carousel-header-text"
                 src="/assets/images/carousel_text2.svg"
-                alt=""
+                alt="Carousel Text 2"
+                loading="lazy"
               />
               <div class="carousel-body">
                 <div class="carousel-line" style="position: relative">
                   <div></div>
                 </div>
-
                 <div>
                   <p class="carousel-body-text">
                     Center1은 약 170,000m²의 건축 연면적으로 서울 도심 최대
@@ -193,80 +209,11 @@
                 <button class="carousel-view-more">
                   <p>
                     view more
-                    <img src="/assets/images/keyboard_arrow_right.svg" alt="" />
-                  </p>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item active">
-            <img
-              class="carousel-background"
-              src="/assets/images/image_3.png"
-              alt=""
-            />
-            <div class="carousel-text ">
-              <img
-                class="carousel-header-text"
-                src="/assets/images/carousel_text3.svg"
-                alt=""
-              />
-              <div class="carousel-body">
-                <div class="carousel-line" style="position: relative">
-                  <div></div>
-                </div>
-
-                <div>
-                  <p class="carousel-body-text">
-                    Center1의 건축 모티브는 음과 양 (Yin & Yang)입니다. 하나의
-                    매스에서 분리된 두 동은 음각과 양각 형태로 마주 보고
-                    있습니다. 외부 마감재는 자연과 조화를 이루며 주변 건물들과
-                    차별화된 자재를 사용하였고, 알루미늄 환기창은 외기를
-                    도입하면서도 개폐 시 외관 변화가 없도록 세심하게
-                    설계되었습니다.
-                  </p>
-                </div>
-                <button class="carousel-view-more">
-                  <p>
-                    view more
-                    <img src="/assets/images/keyboard_arrow_right.svg" alt="" />
-                  </p>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img
-              class="carousel-background"
-              src="/assets/images/image_4.png"
-              alt=""
-            />
-            <div class="carousel-text">
-              <img
-                class="carousel-header-text"
-                src="/assets/images/carousel_text4.svg"
-                alt=""
-              />
-              <div class="carousel-body">
-                <div class="carousel-line" style="position: relative">
-                  <div></div>
-                </div>
-
-                <div>
-                  <p class="carousel-body-text">
-                    Center1은 입주사들을 위한 철저한 보안 관리와 사고 예방을
-                    위한 통합 시스템을 도입하여, 보안과 경비 현황을 한 곳에서
-                    효과적으로 관리합니다. 아트리움 2층 로비에서는 방문객 출입을
-                    관리하며, 최첨단 보안 시설을 통해 임차인들에게 높은 수준의
-                    보안 서비스를 제공합니다. 또한, 입주사를 위한 차별화된
-                    서비스를 제공하며, 입주사와 외부 이용객 모두가 이용할 수
-                    있는 다양한 편의 시설을 갖추고 있습니다.
-                  </p>
-                </div>
-                <button class="carousel-view-more">
-                  <p>
-                    view more
-                    <img src="/assets/images/keyboard_arrow_right.svg" alt="" />
+                    <img
+                      src="/assets/images/keyboard_arrow_right.svg"
+                      alt="Arrow Right"
+                      loading="lazy"
+                    />
                   </p>
                 </button>
               </div>
