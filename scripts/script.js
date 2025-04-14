@@ -198,80 +198,80 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", () => {
   const carouselInner = document.querySelector(".sixth-div .carousel1-inner");
   const originalItems = document.querySelectorAll(".sixth-div .carousel1-item");
-  const itemWidth = originalItems[0].offsetWidth + 42; // Include gap
-  const itemsInView = 5;
-  const cloneCount = 2;
-  let allItems = [...originalItems];
-  let currentIndex = 0;
+  const itemWidth = originalItems[0].offsetWidth + 42; // Include gap between items
+  const itemsInView = 5; // Number of items visible in the carousel
+  const cloneCount = 2; // Number of times items are cloned for infinite scrolling
+  let allItems = [...originalItems]; // Array to hold all items (original + cloned)
+  let currentIndex = 0; // Index of the currently active item
 
-  // Set carousel width for items in view
+  // Set carousel width based on the number of items in view
   carouselInner.style.width = `${itemWidth * itemsInView}px`;
 
-  // Clone items to create an infinite loop
+  // Clone items to create an infinite loop effect
   function cloneItems() {
     for (let c = 0; c < cloneCount; c++) {
       originalItems.forEach((item) => {
-        const clone = item.cloneNode(true);
-        carouselInner.appendChild(clone);
-        allItems.push(clone);
+        const clone = item.cloneNode(true); // Clone the item
+        carouselInner.appendChild(clone); // Append the clone to the carousel
+        allItems.push(clone); // Add the clone to the allItems array
       });
     }
   }
   cloneItems();
 
-  // Update the active class
+  // Update the active class for the current item
   function updateActiveItem(index) {
     allItems.forEach((item, i) => {
-      item.classList.toggle("active", i === index);
+      item.classList.toggle("active", i === index); // Add 'active' class to the current item
     });
   }
 
-  // Center the active item
+  // Center the active item in the carousel
   function centerActiveItem() {
     const activeItem = allItems[currentIndex];
     const leftOffset =
       activeItem.offsetLeft - window.innerWidth / 2 + activeItem.offsetWidth / 2;
-    carouselInner.style.transition = "transform 0.5s ease-in-out";
-    carouselInner.style.transform = `translateX(-${leftOffset}px)`;
+    carouselInner.style.transition = "transform 0.5s ease-in-out"; // Smooth transition
+    carouselInner.style.transform = `translateX(-${leftOffset}px)`; // Center the active item
   }
 
-  // Move to the next item
+  // Move to the next item in the carousel
   function moveToNextItem() {
-    currentIndex = (currentIndex + 1) % allItems.length;
+    currentIndex = (currentIndex + 1) % allItems.length; // Increment index and loop back if necessary
     updateActiveItem(currentIndex);
     centerActiveItem();
   }
 
-  // Handle carousel reset for infinite loop
+  // Reset the carousel for infinite scrolling
   function resetCarousel() {
     if (currentIndex >= allItems.length - originalItems.length) {
-      carouselInner.style.transition = "none";
-      currentIndex = 0;
+      carouselInner.style.transition = "none"; // Disable transition for instant reset
+      currentIndex = 0; // Reset index to the first item
       centerActiveItem();
       setTimeout(() => {
-        carouselInner.style.transition = "transform 0.5s ease-in-out";
+        carouselInner.style.transition = "transform 0.5s ease-in-out"; // Re-enable transition
       }, 50);
     }
   }
 
-  // Auto-move carousel
+  // Automatically move the carousel at regular intervals
   const autoMoveInterval = setInterval(() => {
     moveToNextItem();
     resetCarousel();
-  }, 2000);
+  }, 2000); // Move every 2 seconds
 
-  // Handle window resize
+  // Adjust carousel on window resize
   window.addEventListener("resize", () => {
-    carouselInner.style.width = `${itemWidth * itemsInView}px`;
-    centerActiveItem();
+    carouselInner.style.width = `${itemWidth * itemsInView}px`; // Recalculate width
+    centerActiveItem(); // Re-center the active item
   });
 
-  // Handle swipe gestures
+  // Handle swipe gestures for touch devices
   let startX = 0;
   let isDragging = false;
 
   function handleTouchStart(event) {
-    startX = event.touches[0].clientX;
+    startX = event.touches[0].clientX; // Record the starting touch position
     isDragging = true;
     carouselInner.style.transition = "none"; // Disable transition during drag
   }
@@ -280,16 +280,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isDragging) return;
     const currentX = event.touches[0].clientX;
     const translateX = currentX - startX;
-    carouselInner.style.transform = `translateX(${translateX}px)`;
+    carouselInner.style.transform = `translateX(${translateX}px)`; // Move carousel based on touch
   }
 
   function handleTouchEnd() {
     isDragging = false;
     const movedBy = carouselInner.style.transform.match(/-?\d+/)[0]; // Extract translateX value
     if (movedBy < -50 && currentIndex < allItems.length - 1) {
-      moveToNextItem();
+      moveToNextItem(); // Swipe left
     } else if (movedBy > 50 && currentIndex > 0) {
-      currentIndex--;
+      currentIndex--; // Swipe right
       updateActiveItem(currentIndex);
       centerActiveItem();
     } else {
@@ -297,6 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Add event listeners for touch gestures
   carouselInner.addEventListener("touchstart", handleTouchStart);
   carouselInner.addEventListener("touchmove", handleTouchMove);
   carouselInner.addEventListener("touchend", handleTouchEnd);

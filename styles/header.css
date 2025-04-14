@@ -105,15 +105,18 @@ nav {
   transform: translateY(0);
 }
 
-
+/* Icon in the header */
 .icon-header {
   width: 17px;
 }
 
+/* Hamburger menu for mobile navigation */
 .hamburger-menu {
   display: none;
   width: 17px;
 }
+
+/* Mobile navigation menu */
 .mobile-nav {
   position: fixed;
   top: 0;
@@ -129,23 +132,25 @@ nav {
   flex-direction: column;
   gap: 24px;
   transition: transform 0.4s ease;
-  transform: translateX(100%); /* fully out of view */
+  transform: translateX(100%); /* Initially hidden */
 }
 
+/* Open state for the mobile navigation menu */
 .mobile-nav.open {
-  transform: translateX(0);
+  transform: translateX(0); /* Slide into view */
 }
 
-
-.mobile-nav.open {
-  right: 0;
-}
-
+/* Links inside the mobile navigation menu */
 .mobile-nav a {
   color: white;
-  font-size: 18px;
   text-decoration: none;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav a:hover {
+  color: #f58220; /* Highlight on hover */
 }
 
 .mobile-nav .close-btn {
